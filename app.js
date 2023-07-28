@@ -21,9 +21,21 @@ app.use(express.static('public'));
 // setting body-parser
 app.use(express.urlencoded({ extended: true }));
 
+// setting session
+const session = require('express-session');
+app.use(session({
+  secret: 'ThisIsMySecret',
+  resave: false,
+  saveUninitialized: true
+}));
+
 // setting method-override
 const methodOverride = require('method-override');
 app.use(methodOverride('_method'));
+
+// setting passport
+const usePassport = require('./config/passport');
+usePassport(app)
 
 // routes setting
 const routes = require('./routes');
