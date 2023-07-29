@@ -4,7 +4,6 @@ const router = express.Router();
 
 const db = require('../../models')
 const Todo = db.Todo;
-const User = db.User;
 
 
 // (頁面)首頁

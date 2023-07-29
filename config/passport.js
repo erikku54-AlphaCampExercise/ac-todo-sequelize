@@ -31,6 +31,7 @@ module.exports = app => {
       .catch(err => done(err, false));
   }))
 
+  // serialize & deserialize
   passport.serializeUser((user, done) => {
     done(null, user.id);
   })
